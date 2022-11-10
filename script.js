@@ -111,7 +111,7 @@ function getInfo(event) {
         showWeaponComp.classList.add('hidden')
         winLose.classList.remove('hidden')
         fight.classList.remove('hidden')
-        winLose.innerHTML = "<h2>You Are Victorious!</h2>"
+        winLose.innerHTML = "<h2>You Win!</h2>"
     }
 
     round.innerHTML = `Round ${roundCount}`
