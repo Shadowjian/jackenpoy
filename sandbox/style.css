@@ -3,6 +3,11 @@ i {
     padding: 10px;
 }
 
+#weapons {
+    width: fit-content;
+    background-color: aquamarine;
+}
+
 i:hover {
     background-color: rgba(34, 34, 34, 0.5);
 }

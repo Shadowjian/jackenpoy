@@ -1,4 +1,5 @@
-document.body.addEventListener('click', getInfo)
+const weapons = document.querySelector('#weapons')
+weapons.addEventListener('click', getInfo)
 let display  = document.querySelector('.display')
 let score = document.querySelector('.score')
 let vs = document.querySelector('.vs')
