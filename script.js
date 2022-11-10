@@ -1,3 +1,11 @@
+
+const bgAudio = document.querySelector('#audio1')
+const slap = document.querySelector('#slap')
+const awSlap = document.querySelector('#awslap')
+const failed = document.querySelector('#failed')
+const win = document.querySelector('#win')
+bgAudio.loop = true;
+bgAudio.play()
 const weaponsP1 = document.querySelector('#p1-weapons')
 let display  = document.querySelector('.display')
 let score = document.querySelector('.score')
@@ -79,6 +87,7 @@ function getInfo(event) {
             // console.log("it's a tie")
             // display.innerText = "RESULT: It's a tie"
         } else if (result == 'rs' || result == 'pr' || result == 'sp' ) {
+            slap.play()
             hpComp -= 25
 
             // display.innerText = "RESULT: Player 1 Wins"
@@ -86,6 +95,7 @@ function getInfo(event) {
         } else {
             // console.log('comp wins')
             // display.innerText = "RESULT: Computer wins"
+            awSlap.play()
             hpP1 -= 25
         }
     }
@@ -100,6 +110,7 @@ function getInfo(event) {
         showWeaponP1.classList.add('hidden')
         showWeaponComp.classList.add('hidden')
         fight.classList.remove('hidden')
+        failed.play()
         winLose.classList.remove('hidden')
         winLose.innerHTML = "<h2>You Lose!</h2>"
     }
@@ -111,6 +122,7 @@ function getInfo(event) {
         showWeaponComp.classList.add('hidden')
         winLose.classList.remove('hidden')
         fight.classList.remove('hidden')
+        win.play()
         winLose.innerHTML = "<h2>You Win!</h2>"
     }
 
