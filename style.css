@@ -106,16 +106,15 @@ i {
 .show-weapon-p1 i{
     font-size: 6rem;
     color: blue;
-    /* background-color: blue; */
-    /* height: 50px; */
-    /* width: 50px; */
+    -webkit-text-stroke: 1px white;
+    text-shadow: 5px 5px 10px;
 }
 .show-weapon-comp i{
     font-size: 6rem;
     color: red;
-    /* background-color: red; */
-    /* height: 50px; */
-    /* width: 50px; */
+    -webkit-text-stroke: 1px white;
+    text-shadow: 5px 5px 10px;
+
 }
 
 #fighters {
