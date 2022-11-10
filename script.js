@@ -1,11 +1,8 @@
 
-const bgAudio = document.querySelector('#audio1')
 const slap = document.querySelector('#slap')
 const awSlap = document.querySelector('#awslap')
 const failed = document.querySelector('#failed')
 const win = document.querySelector('#win')
-bgAudio.loop = true;
-bgAudio.play()
 const weaponsP1 = document.querySelector('#p1-weapons')
 let display  = document.querySelector('.display')
 let score = document.querySelector('.score')
@@ -42,7 +39,10 @@ const fight = document.querySelector("#fight")
 let hpP1 = 100
 let hpComp = 100
 let roundCount = 1
+const audio = document.querySelector('#audio1')
+audio.loop = true
 function getInfo(event) {
+    audio.play()
     fight.classList.add('hidden')
     winLose.classList.add('hidden')
     fight.classList.add('hidden')    
