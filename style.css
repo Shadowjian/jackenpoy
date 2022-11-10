@@ -18,13 +18,13 @@ body {
     border: solid 1px lightblue;
     padding: 20px;
     background-image: url(./assets/sfbg.png);
-    width: 80vw;
-    min-width: 500px;
-    min-height: 390px;
+    width: 90vw;
+    max-width: 700px;
+    min-width: 320px;
+    min-height: 200px;
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;
-    max-width: 600px;
 }
 
 #game-title {
@@ -35,16 +35,12 @@ body {
 
 
 .hp {
-    padding-left: 30px;
-    padding-right: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: solid 1px white; */
 }
 
 .hp-p1 {
-    /* display: flex; */
     height: 20px;
     width: 40%;
     border: solid 1px white;
