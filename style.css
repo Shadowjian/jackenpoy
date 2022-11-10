@@ -25,7 +25,12 @@ body {
     background-size:cover;
     background-repeat: no-repeat;
     max-width: 600px;
+}
 
+#game-title {
+    text-align: center;
+    font-size: 1.7rem;
+    -webkit-text-stroke: 1px white;
 }
 
 
@@ -142,8 +147,8 @@ i {
 
 #win-lose {
     position: absolute;
-    bottom: 70px;
-    font-size: 1.5rem;
+    bottom: 80px;
+    font-size: 1.7rem;
     align-self: center;
     z-index: 100;
     color: white;
@@ -152,5 +157,6 @@ i {
 
 /* utilities */
 .hidden {
-    display: none;
+    /* display: none; */
+    visibility: hidden;
 }
