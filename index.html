@@ -9,28 +9,58 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Rock Paper Scissor</h2>
+    
+<div id="screen">
+<div class="hp">
+    <div class="hp-p1"></div>
+    <div class="count-down"><i class="fa-solid fa-infinity"></i></div>
+    <div class="hp-comp"></div>
+</div>
+<div class="round">
+    <h2>Round 1</h2>
 
-    <h3>Player1 choose your weapon:</h3>
+    <h1>FIGHT!</h1>
+</div>
 
-    <div id="weapons">
-        <div class="rock weapon">
-            <i id="rock" class="fa-regular fa-hand-back-fist"></i>
-        </div>
-        <div class="paper weapon">
-            <i id="paper" class="fa-regular fa-hand"></i>
-        </div>
-        <div class="scissor weapon">
-            <i id="scissors" class="fa-regular fa-hand-scissors"></i>
-        </div>
-    </div>
-
-    <div>
+    <!-- <div>
         <h3 class="vs">vs</h3>
         <h3 class="display">RESULT:</h3>
         <h3 class="score">SCORE:</h3>
+    </div> -->
+    <div id="fighters">
+        <div class="player1">
+            <div id="p1-weapons" class="weapons">
+                <div class="rock weapon">
+                    <i id="rock" class="fa-solid fa-hand-back-fist"></i>
+                </div>
+                <div class="paper weapon">
+                    <i id="paper" class="fa-solid fa-hand"></i>
+                </div>
+                <div class="scissor weapon">
+                    <i id="scissors" class="fa-solid fa-hand-scissors"></i>
+                </div>
+            </div>
+        </div>
+        <div class="show-weapons">
+            <div class="">
+
+            </div>
+        </div>
+        <div class="boss">
+            <div id="boss-weapons" class="weapons">
+                <div class="rock weapon">
+                    <i id="rock" class="fa-solid fa-hand-back-fist"></i>
+                </div>
+                <div class="paper weapon">
+                    <i id="paper" class="fa-solid fa-hand"></i>
+                </div>
+                <div class="scissor weapon">
+                    <i id="scissors" class="fa-solid fa-hand-scissors"></i>
+                </div>
+            </div>
+        </div>
     </div>
-    
+</div>
     <script src="script.js"></script>
 
 </body>

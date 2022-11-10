@@ -1,7 +1,15 @@
-document.body.addEventListener('click', getInfo)
+const weaponsP1 = document.querySelector('#p1-weapons')
+weaponsP1.addEventListener('click', getInfo)
 let display  = document.querySelector('.display')
 let score = document.querySelector('.score')
 let vs = document.querySelector('.vs')
+
+weaponsP1.addEventListener('mouseover', showWeapon)
+
+function showWeapon(event) {
+    let x = event.target
+    x.style.color = 'red'
+}
 
 let scoreP1 = 0
 let scoreComp = 0
