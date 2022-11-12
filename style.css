@@ -13,6 +13,7 @@ body {
 }
 
 #game-console {
+    position: relative;
     margin-top: 5vh;
     display: flex;
     border-radius: 20px;
@@ -22,9 +23,11 @@ body {
     background-color: rgb(60, 118, 156);
     /* height: 80vh; */
     max-width: 600px;
-    width: 80vw;
+    min-width: 320px;
+
+    width: 85vw;
     gap: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     box-shadow: 5px 3px 5px rgb(15, 15, 15), -1px -1px inset rgb(75, 60, 60), 1px 1px rgb(75, 60, 60) inset;
 
 }
@@ -63,9 +66,11 @@ body {
     align-content: center;
     align-items: end;
     width: 90%;
+    min-width: 320px;
     height: 100px;
     border-radius: 10px;
     padding: 0px 20px;
+    padding-bottom: 30px;
 }
 
 /* d-pad and action-pad */
@@ -74,8 +79,8 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    width: 40px;
-    height: 40px;
+    /* width: 40px; */
+    /* height: 40px; */
     background-color: rgb(43, 33, 33);
     box-shadow: 5px 3px 5px rgb(15, 15, 15), -1px -1px inset rgb(75, 60, 60), 1px 1px rgb(75, 60, 60) inset;
     border-radius: 50%;
@@ -189,6 +194,26 @@ body {
 
 .ss:hover {
     transform: scale(0.9);
+}
+
+@media (max-width: 430px) {
+    /* .mid-btns {
+        gap: 0px;
+    } */
+    .btn {
+        width: 20px;
+        height: 20px;
+    }
+    .btn i {
+        /* font-size: small; */
+        font-size: 0.6rem;
+    }
+    .ss {
+        width: 20px;
+    }
+    #home {
+        width: 20px;
+    }
 }
 
 
@@ -315,8 +340,25 @@ i {
     -webkit-text-stroke: 1px blue;
 }
 
+#toggle-gamepad {
+    display: flex;
+    gap: 10px;
+    align-self: start;
+    position: absolute;
+    font-size: 0.5rem;
+    bottom: -20px;
+    left: 0px;
+}
+.gpad {
+    background-color: red;
+}
+
 /* utilities */
 .hidden {
     /* display: none; */
     visibility: hidden;
+}
+
+.hide {
+    display: none !important;
 }

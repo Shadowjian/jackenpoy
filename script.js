@@ -108,8 +108,19 @@ function selectWeapon(event) {
     hpCompCount.style.width = `${hpComp}%`
 }
 
+const gamePad = document.querySelector("#controller")
+const gamePadCheckBox = document.querySelector("#gpad")
+gamePadCheckBox.addEventListener('click', toggleGamePad)
 
-
+function toggleGamePad() {
+    if (gamePadCheckBox.checked) {
+        gamePad.classList.remove('hide')
+        // alert('on')0
+    } else {
+        gamePad.classList.add('hide')
+        // alert('off')
+    }
+}
 
 
 
