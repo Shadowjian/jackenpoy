@@ -1,48 +1,31 @@
+const bgAudio = document.querySelector('#audio1')
+bgAudio.loop = true
 
 const slap = document.querySelector('#slap')
 const awSlap = document.querySelector('#awslap')
 const failed = document.querySelector('#failed')
 const win = document.querySelector('#win')
+
 const weaponsP1 = document.querySelector('#p1-weapons')
 let display  = document.querySelector('.display')
 let score = document.querySelector('.score')
 let vs = document.querySelector('.vs')
-
-// weaponsP1.addEventListener('mouseover', showWeapon)
-// weaponsP1.addEventListener('mouseout', hideWeapon)
-
 const showWeaponP1 = document.querySelector('.show-weapon-p1')
 const showWeaponComp = document.querySelector('.show-weapon-comp')
-
-// function showWeapon(event) {
-//     let x = event.target
-//     showWeaponP1.classList.remove('hidden')
-//     showWeaponComp.classList.remove('hidden')
-// }
-
-// function hideWeapon(event) {
-//     let x = event.target
-//     showWeaponP1.classList.add('hidden')
-//     showWeaponComp.classList.add('hidden')
-// }
-
-weaponsP1.addEventListener('click', getInfo)
-
-let scoreP1 = 0
-let scoreComp = 0
-
 let round = document.querySelector("#round")
 let winLose = document.querySelector('#win-lose')
 let hpP1Count = document.querySelector('#hp-p1-count')
 let hpCompCount = document.querySelector('#hp-comp-count')
 const fight = document.querySelector("#fight")
+
+weaponsP1.addEventListener('click', selectWeapon)
+
 let hpP1 = 100
 let hpComp = 100
 let roundCount = 1
-const audio = document.querySelector('#audio1')
-audio.loop = true
-function getInfo(event) {
-    audio.play()
+
+function selectWeapon(event) {
+    bgAudio.play()
     fight.classList.add('hidden')
     winLose.classList.add('hidden')
     fight.classList.add('hidden')    
@@ -61,6 +44,7 @@ function getInfo(event) {
     
     function rpsGame (p1) {
 
+        let player1 = options[p1]
         if (p1 == 0) {
             showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
         } else if (p1 == 1) {
@@ -68,10 +52,8 @@ function getInfo(event) {
         } else if (p1 == 2) {
             showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-scissors'></i>"
         }
-
-        let player1 = options[p1]
-        let computer = options[Math.floor(Math.random(1)*3)]
         
+        let computer = options[Math.floor(Math.random(1)*3)]
         if (computer == 'r') {
             showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
         } else if (computer == 'p') {
@@ -84,17 +66,12 @@ function getInfo(event) {
         let result = player1 + computer
     
         if (player1 == computer) {
-            // console.log("it's a tie")
             // display.innerText = "RESULT: It's a tie"
         } else if (result == 'rs' || result == 'pr' || result == 'sp' ) {
             slap.play()
             hpComp -= 25
-
-            // display.innerText = "RESULT: Player 1 Wins"
             
         } else {
-            // console.log('comp wins')
-            // display.innerText = "RESULT: Computer wins"
             awSlap.play()
             hpP1 -= 25
         }
