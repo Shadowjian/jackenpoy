@@ -189,34 +189,6 @@ body {
     transform: scale(0.9);
 }
 
-@media (max-width: 490px) {
-    .mid-btns {
-        gap: 30px;
-    }
-    .btn {
-        width: 40px;
-        height: 40px;
-    }
-    #home i {
-        font-size: 0.6rem;
-    }
-    /* .ss {
-        width: 30px;
-    } */
-    #select:before {
-        font-size: 0.4rem;
-    }
-    #start:before {
-        font-size: 0.4rem;
-    }
-    #select-start {
-        /* display: none; */
-        margin-bottom: 5px;
-    }
-    #console-name {
-        margin-bottom: 0px;
-    }
-}
 
 
 #game-title {
@@ -278,17 +250,15 @@ body {
 
 }
 
-.player1 i, .boss i {
-    font-size: 1.5rem;
+i {
+    font-size: 1.4rem;
     padding: 10px;
     color: white;
     /* border: solid 1px red */
 }
 
 .weapons {
-    /* display: flex; */
     width: fit-content;
-    /* background-color: aquamarine; */
 }
 
 .show-weapon-p1 i{
@@ -296,6 +266,7 @@ body {
     color: blue;
     -webkit-text-stroke: 1px white;
     text-shadow: 5px 5px 10px;
+
 }
 .show-weapon-comp i{
     font-size: 5rem;
@@ -361,4 +332,33 @@ body {
 
 .hide {
     display: none !important;
+}
+
+@media (max-width: 490px) {
+    .mid-btns {
+        gap: 30px;
+    }
+    .btn {
+        width: 40px;
+        height: 40px;
+    }
+    #home i {
+        font-size: 0.6rem;
+    }
+    /* .ss {
+        width: 30px;
+    } */
+    #select:before {
+        font-size: 0.4rem;
+    }
+    #start:before {
+        font-size: 0.4rem;
+    }
+    #select-start {
+        /* display: none; */
+        margin-bottom: 5px;
+    }
+    #console-name {
+        margin-bottom: 0px;
+    }
 }
