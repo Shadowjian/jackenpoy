@@ -76,13 +76,15 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    /* width: 40px; */
+    /* width: fit-content; */
+    
     /* height: 40px; */
     background-color: rgb(43, 33, 33);
     box-shadow: 5px 3px 5px rgb(15, 15, 15), -1px -1px inset rgb(75, 60, 60), 1px 1px rgb(75, 60, 60) inset;
     border-radius: 50%;
     border: solid 1px rgb(54, 52, 52);
 }
+
 
 #d-pad .btn {
     border-radius: 0%;
@@ -189,6 +191,10 @@ body {
     transform: scale(0.9);
 }
 
+#aciont-pad div {
+    width: fit-content;
+}
+
 
 
 #game-title {
@@ -266,13 +272,24 @@ i {
     color: blue;
     -webkit-text-stroke: 1px white;
     text-shadow: 5px 5px 10px;
-
 }
+
+#vs {
+    font-size: 1.8rem;
+    color: white;
+    align-self: center;
+    -webkit-text-stroke: 1px black;
+}
+
 .show-weapon-comp i{
     font-size: 5rem;
     color: red;
     -webkit-text-stroke: 1px white;
     text-shadow: 5px 5px 10px;
+}
+
+.draw {
+    color: rgb(84, 219, 84);
 }
 
 #fighters {
