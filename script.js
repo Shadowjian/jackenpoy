@@ -37,6 +37,8 @@ let roundCount = 1
 let scoreP1 = 0;
 let scoreComp = 0;
 
+showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
 
 // USING TOUCHSCREEN
 function selectWeapon(event) {
@@ -45,9 +47,10 @@ function selectWeapon(event) {
     fight.classList.add('hidden')
     vs.classList.remove('hidden')
     winLose.classList.add('hidden')
-    showWeaponP1.classList.remove('hidden')
-    showWeaponComp.classList.remove('hidden')
+    // showWeaponP1.classList.remove('hidden')
+    // showWeaponComp.classList.remove('hidden')
     
+
     const options = "rps"
     let id = event.target.getAttribute("id");
     p1 = 0
@@ -120,6 +123,8 @@ function selectWeapon(event) {
             showWeaponComp.classList.add('hidden')
             vs.classList.add('hidden')
             round.classList.remove('hidden')
+            weaponsBoss.classList.add('hidden')
+            weaponsP1.classList.add('hidden')
             
         }, 1500)
         
@@ -129,6 +134,8 @@ function selectWeapon(event) {
             showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
             showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
             fight.classList.remove('hidden')
+            weaponsBoss.classList.remove('hidden')
+            weaponsP1.classList.remove('hidden')
         }, 3000)
               
     }
@@ -150,6 +157,8 @@ function selectWeapon(event) {
             showWeaponComp.classList.add('hidden')
             vs.classList.add('hidden')
             round.classList.remove('hidden')
+            weaponsBoss.classList.add('hidden')
+            weaponsP1.classList.add('hidden')
         }, 1500)
         setTimeout(()=>{
             showWeaponComp.classList.remove('hidden')
@@ -157,6 +166,8 @@ function selectWeapon(event) {
             showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
             showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
             fight.classList.remove('hidden')
+            weaponsBoss.classList.remove('hidden')
+            weaponsP1.classList.remove('hidden')
         }, 3000)
     }
 
