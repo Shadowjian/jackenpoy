@@ -25,8 +25,8 @@ actionPad.addEventListener('click', selectWeaponPad)
 const weaponsP1 = document.querySelector('#p1-weapons')
 const weaponsBoss = document.querySelector('#boss-weapons')
 
+// TOUCH SCREEN
 weaponsP1.addEventListener('click', selectWeapon)
-
 
 let hpP1 = 100
 let hpComp = 100
