@@ -81,10 +81,12 @@ function selectWeapon(event) {
            vs.textContent = "Draw"
         } else if (result == 'rs' || result == 'pr' || result == 'sp' ) {
            vs.textContent = ["😛!", "🤣!", "🤫!"][Math.floor(Math.random()*3)]
-            slap.play()
-            hpComp -= 25
+           slap.currentTime = 0;
+           slap.play()
+           hpComp -= 25
             
         } else {
+            awSlap.currentTime = 0;
             awSlap.play()
             vs.textContent = ["🥴!", "😭!", "😢!"][Math.floor(Math.random()*3)]
 
@@ -177,10 +179,12 @@ function selectWeaponPad(event) {
            vs.textContent = "Draw"
         } else if (result == 'rs' || result == 'pr' || result == 'sp' ) {
            vs.textContent = ["😛!", "🤣!", "🤫!"][Math.floor(Math.random()*3)]
+           slap.currentTime = 0;
             slap.play()
             hpComp -= 25
             
         } else {
+            awSlap.currentTime = 0;
             awSlap.play()
             vs.textContent = ["🥴!", "😭!", "😢!"][Math.floor(Math.random()*3)]
 
@@ -240,6 +244,5 @@ function toggleGamePad() {
         
     }
 }
-
 
 

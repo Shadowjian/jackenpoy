@@ -137,6 +137,7 @@ body {
 }
 #home:hover {
     border: solid 2px rgb(227, 233, 243);
+    cursor: pointer;
 }
 .fa-house:hover {
     color: rgb(108, 172, 212);
@@ -148,7 +149,13 @@ body {
 }
 
 .btn:hover {
+    /* transform: scale(0.9); */
+    cursor: pointer;
+}
+
+.btn:active, .ss:active, #home:active {
     transform: scale(0.9);
+
 }
 
 /* start select pad */
@@ -169,7 +176,6 @@ body {
     color: rgb(175, 166, 166);
     border-radius: 5px;
     border: solid 1px rgb(54, 52, 52);
-
 }
 
 #select:before {
@@ -188,7 +194,8 @@ body {
 }
 
 .ss:hover {
-    transform: scale(0.9);
+    /* transform: scale(0.9); */
+    cursor: pointer;
 }
 
 #aciont-pad div {
