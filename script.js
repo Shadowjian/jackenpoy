@@ -112,6 +112,8 @@ function selectWeapon(event) {
         winLose.classList.remove('hidden')
         winLose.innerHTML = "<h2>You Lose ☠️!</h2>"
         round.classList.add('hidden')
+        weaponsBoss.classList.add('hidden')
+        weaponsP1.classList.add('hidden')
         failed.play()
         setTimeout(()=>{
             hpComp = 100
@@ -123,8 +125,7 @@ function selectWeapon(event) {
             showWeaponComp.classList.add('hidden')
             vs.classList.add('hidden')
             round.classList.remove('hidden')
-            weaponsBoss.classList.add('hidden')
-            weaponsP1.classList.add('hidden')
+            
             
         }, 1500)
         
@@ -146,6 +147,8 @@ function selectWeapon(event) {
         winLose.classList.remove('hidden')
         winLose.innerHTML = "<h2>You Win 🥳!</h2>"
         round.classList.add('hidden')
+        weaponsBoss.classList.add('hidden')
+        weaponsP1.classList.add('hidden')
         win.play()
         setTimeout(()=>{
             hpComp = 100
@@ -157,8 +160,7 @@ function selectWeapon(event) {
             showWeaponComp.classList.add('hidden')
             vs.classList.add('hidden')
             round.classList.remove('hidden')
-            weaponsBoss.classList.add('hidden')
-            weaponsP1.classList.add('hidden')
+            
         }, 1500)
         setTimeout(()=>{
             showWeaponComp.classList.remove('hidden')
