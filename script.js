@@ -2,13 +2,12 @@
 const bgAudio = document.querySelector('#audio1')
 bgAudio.loop = true
 
+const draw = document.querySelector('#draw')
 const slap = document.querySelector('#slap')
 const awSlap = document.querySelector('#awslap')
 const failed = document.querySelector('#failed')
 const win = document.querySelector('#win')
 
-// let display  = document.querySelector('.display')
-// let score = document.querySelector('.score')
 const showWeaponP1 = document.querySelector('.show-weapon-p1')
 const vs = document.querySelector('#vs')
 const showWeaponComp = document.querySelector('.show-weapon-comp')
@@ -17,6 +16,9 @@ const winLose = document.querySelector('#win-lose')
 const fight = document.querySelector("#fight")
 let hpP1Count = document.querySelector('#hp-p1-count')
 let hpCompCount = document.querySelector('#hp-comp-count')
+
+let winP1 = document.querySelector("#player1-score")
+let winComp = document.querySelector("#comp-score")
 
 // GAMEPAD
 const actionPad = document.querySelector("#action-pad")
@@ -32,10 +34,14 @@ let hpP1 = 100
 let hpComp = 100
 let roundCount = 1
 
+let scoreP1 = 0;
+let scoreComp = 0;
+
 
 // USING TOUCHSCREEN
 function selectWeapon(event) {
     bgAudio.play()
+    round.classList.remove('hidden')
     fight.classList.add('hidden')
     vs.classList.remove('hidden')
     winLose.classList.add('hidden')
@@ -45,7 +51,7 @@ function selectWeapon(event) {
     const options = "rps"
     let id = event.target.getAttribute("id");
     p1 = 0
-    if (id ==='rock' || id === 'star-btn'){
+    if (id ==='rock'){
         p1 = 0
     } else if (id === 'paper') {
         p1 = 1
@@ -79,59 +85,110 @@ function selectWeapon(event) {
     
         if (player1 == computer) {
            vs.textContent = "Draw"
+           draw.currentTime = 0;
+           draw.play()
         } else if (result == 'rs' || result == 'pr' || result == 'sp' ) {
            vs.textContent = ["😛!", "🤣!", "🤫!"][Math.floor(Math.random()*3)]
            slap.currentTime = 0;
            slap.play()
-           hpComp -= 25
+           hpComp -= 20
             
         } else {
             awSlap.currentTime = 0;
             awSlap.play()
             vs.textContent = ["🥴!", "😭!", "😢!"][Math.floor(Math.random()*3)]
 
-            hpP1 -= 25
+            hpP1 -= 20
         }
     }
     
     rpsGame(p1)
-    // console.log(hpComp)
-    // console.log(hpP1)
     if (Math.floor(hpP1) == 0) {
         roundCount += 1
-        hpComp = 100
-        hpP1 = 100
-        showWeaponP1.classList.add('hidden')
-        showWeaponComp.classList.add('hidden')
-        fight.classList.remove('hidden')
-        failed.play()
+        scoreComp += 1
         winLose.classList.remove('hidden')
-        vs.classList.add('hidden')
         winLose.innerHTML = "<h2>You Lose ☠️!</h2>"
+        round.classList.add('hidden')
+        failed.play()
+        setTimeout(()=>{
+            hpComp = 100
+            hpP1 = 100
+            hpCompCount.style.width = "100%"
+            hpP1Count.style.width = "100%"
+            winLose.classList.add('hidden')
+            showWeaponP1.classList.add('hidden')
+            showWeaponComp.classList.add('hidden')
+            vs.classList.add('hidden')
+            round.classList.remove('hidden')
+            
+        }, 1500)
+        
+        setTimeout(()=>{
+            showWeaponComp.classList.remove('hidden')
+            showWeaponP1.classList.remove('hidden')
+            showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            fight.classList.remove('hidden')
+        }, 3000)
+              
     }
+
     if (Math.floor(hpComp) == 0) {
         roundCount += 1
-        hpComp = 100
-        hpP1 = 100
-        showWeaponP1.classList.add('hidden')
-        showWeaponComp.classList.add('hidden')
+        scoreP1 += 1
         winLose.classList.remove('hidden')
-        fight.classList.remove('hidden')
-        vs.classList.add('hidden')
-        win.play()
         winLose.innerHTML = "<h2>You Win 🥳!</h2>"
+        round.classList.add('hidden')
+        win.play()
+        setTimeout(()=>{
+            hpComp = 100
+            hpP1 = 100
+            hpCompCount.style.width = "100%"
+            hpP1Count.style.width = "100%"
+            winLose.classList.add('hidden')
+            showWeaponP1.classList.add('hidden')
+            showWeaponComp.classList.add('hidden')
+            vs.classList.add('hidden')
+            round.classList.remove('hidden')
+        }, 1500)
+        setTimeout(()=>{
+            showWeaponComp.classList.remove('hidden')
+            showWeaponP1.classList.remove('hidden')
+            showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            fight.classList.remove('hidden')
+        }, 3000)
     }
 
+    console.log('round' + roundCount)
+    // console.log('comp' + scoreComp, 'player1' + scoreP1)
+    // if (roundCount == 3){
+    //     round.innerHTML = "Final Round"
+    //     if (scoreComp > scoreP1) {
+    //         console.log('comp wins')
+    //     } else {
+    //         console.log('p1 wins')
+    //     }
+    // } else if (roundCount > 3) {
+    //     roundCount = 1
+    //     round.innerHTML = `Round ${roundCount}`
+    // } else {
+    //     round.innerHTML = `Round ${roundCount}`
+    // }
     round.innerHTML = `Round ${roundCount}`
+    winComp.innerHTML = `Wins: ${scoreComp}`
+    winP1.innerHTML = `Wins: ${scoreP1}`
     hpP1Count.style.width = `${hpP1}%`
     hpCompCount.style.width = `${hpComp}%`
-}
 
+}
 // USING GAMEPAD
 
 function selectWeaponPad(event) {
-    // if (event.target.tagName ==="i"){
+    
+    showWeaponComp.innerHTML = 
     bgAudio.play()
+    round.classList.remove('hidden')
     fight.classList.add('hidden')
     vs.classList.remove('hidden')
     winLose.classList.add('hidden')
@@ -154,6 +211,7 @@ function selectWeaponPad(event) {
     // GAME LOGIC
     function rpsGame (p1) {
         // P1 WEAPON SELECTION
+       
         let player1 = options[p1]
         if (p1 == 0) {
             showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
@@ -177,52 +235,103 @@ function selectWeaponPad(event) {
     
         if (player1 == computer) {
            vs.textContent = "Draw"
+           draw.currentTime = 0;
+           draw.play()
         } else if (result == 'rs' || result == 'pr' || result == 'sp' ) {
            vs.textContent = ["😛!", "🤣!", "🤫!"][Math.floor(Math.random()*3)]
            slap.currentTime = 0;
             slap.play()
-            hpComp -= 25
+            hpComp -= 20
             
         } else {
             awSlap.currentTime = 0;
             awSlap.play()
             vs.textContent = ["🥴!", "😭!", "😢!"][Math.floor(Math.random()*3)]
 
-            hpP1 -= 25
+            hpP1 -= 20
         }
     }
     
     rpsGame(p1)
-    // console.log(hpComp)
-    // console.log(hpP1)
+
     if (Math.floor(hpP1) == 0) {
         roundCount += 1
-        hpComp = 100
-        hpP1 = 100
-        showWeaponP1.classList.add('hidden')
-        showWeaponComp.classList.add('hidden')
-        fight.classList.remove('hidden')
-        failed.play()
+        scoreComp += 1
         winLose.classList.remove('hidden')
-        vs.classList.add('hidden')
         winLose.innerHTML = "<h2>You Lose ☠️!</h2>"
-    }
-    if (Math.floor(hpComp) == 0) {
-        roundCount += 1
-        hpComp = 100
-        hpP1 = 100
-        showWeaponP1.classList.add('hidden')
-        showWeaponComp.classList.add('hidden')
-        winLose.classList.remove('hidden')
-        fight.classList.remove('hidden')
-        vs.classList.add('hidden')
-        win.play()
-        winLose.innerHTML = "<h2>You Win 🥳!</h2>"
+        round.classList.add('hidden')
+        failed.play()
+        setTimeout(()=>{
+            hpComp = 100
+            hpP1 = 100
+            hpCompCount.style.width = "100%"
+            hpP1Count.style.width = "100%"
+            winLose.classList.add('hidden')
+            showWeaponP1.classList.add('hidden')
+            showWeaponComp.classList.add('hidden')
+            vs.classList.add('hidden')
+            round.classList.remove('hidden')
+            
+        }, 1500)
+        
+        setTimeout(()=>{
+            showWeaponComp.classList.remove('hidden')
+            showWeaponP1.classList.remove('hidden')
+            showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            fight.classList.remove('hidden')
+        }, 3000)
+              
     }
 
+    if (Math.floor(hpComp) == 0) {
+        roundCount += 1
+        scoreP1 += 1
+        winLose.classList.remove('hidden')
+        winLose.innerHTML = "<h2>You Win 🥳!</h2>"
+        round.classList.add('hidden')
+        win.play()
+        setTimeout(()=>{
+            hpComp = 100
+            hpP1 = 100
+            hpCompCount.style.width = "100%"
+            hpP1Count.style.width = "100%"
+            winLose.classList.add('hidden')
+            showWeaponP1.classList.add('hidden')
+            showWeaponComp.classList.add('hidden')
+            vs.classList.add('hidden')
+            round.classList.remove('hidden')
+        }, 1500)
+        setTimeout(()=>{
+            showWeaponComp.classList.remove('hidden')
+            showWeaponP1.classList.remove('hidden')
+            showWeaponP1.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            showWeaponComp.innerHTML = "<i class='fa-solid fa-hand-back-fist'></i>"
+            fight.classList.remove('hidden')
+        }, 3000)
+    }
+
+    console.log('round' + roundCount)
+    // console.log('comp' + scoreComp, 'player1' + scoreP1)
+    // if (roundCount == 3){
+    //     round.innerHTML = "Final Round"
+    //     if (scoreComp > scoreP1) {
+    //         console.log('comp wins')
+    //     } else {
+    //         console.log('p1 wins')
+    //     }
+    // } else if (roundCount > 3) {
+    //     roundCount = 1
+    //     round.innerHTML = `Round ${roundCount}`
+    // } else {
+    //     round.innerHTML = `Round ${roundCount}`
+    // }
     round.innerHTML = `Round ${roundCount}`
+    winComp.innerHTML = `Wins: ${scoreComp}`
+    winP1.innerHTML = `Wins: ${scoreP1}`
     hpP1Count.style.width = `${hpP1}%`
     hpCompCount.style.width = `${hpComp}%`
+
 }
 
 const gamePad = document.querySelector("#controller")

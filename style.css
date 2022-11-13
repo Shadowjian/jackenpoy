@@ -249,10 +249,37 @@ body {
     height: 100%;
     color: white;
 }
+
+#nameP1 {
+    color: rgb(194, 206, 245);
+    font-size: 0.7rem;
+    text-shadow: 1px 1px black;
+
+}
+
 #nameComp {
     position: absolute;
     right: 0;
-    color: red;
+    font-size: 0.7rem;
+    /* -webkit-text-stroke: 1px white; */
+    color: rgb(247, 236, 236);
+    text-shadow: 1px 1px black;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+#player1-score {
+    color: rgb(194, 206, 245);
+    text-shadow: 1px 1px black;
+    font-size: 0.7rem;
+}
+#comp-score {
+    color: rgb(247, 236, 236);
+    text-shadow: 1px 1px black;
+    font-size: 0.7rem;
 }
 
 .round {
@@ -260,7 +287,6 @@ body {
     text-align: center;
     align-self: center;
     color: white;
-
 }
 
 i {
@@ -327,7 +353,7 @@ i {
 
 #win-lose {
     position: absolute;
-    bottom: 80px;
+    top: 110px;
     font-size: 1.7rem;
     align-self: center;
     z-index: 100;

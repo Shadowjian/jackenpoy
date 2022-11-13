@@ -15,6 +15,7 @@
 <audio id="awslap" src="./assets/awslap.mp3"></audio>
 <audio id="failed" src="./assets/failed.mp3"></audio>
 <audio id="win" src="./assets/win.mp3"></audio>
+<audio id="draw" src="./assets/draw.mp3"></audio>
 
 <div id="game-console">
 <div id="screen">
@@ -23,7 +24,10 @@
         <div class="hp-p1">
             <div id="hp-p1-count">
             </div>
-            <div id="nameP1">Slap Monger</div>
+            <div class="stats">
+                <div id="nameP1">Slap Monger</div>
+                <div id="player1-score">Wins: 0 </div>
+            </div>
         </div>
         <div class="count-down">
             <i class="fa-solid fa-infinity"></i>
@@ -31,7 +35,10 @@
         <div class="hp-comp">
             <div id="hp-comp-count">
             </div>
-            <div id="nameComp">Black Finger</div>
+            <div class="stats">
+                <div id="comp-score">Wins: 0 </div>
+                <div id="nameComp">Black Fist</div>
+            </div>
         </div>
     </div>
     <div class="round">
